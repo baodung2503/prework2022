@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hello world!</title>
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <!-- this is the start of content -->
+    <h1>
+      Light and Sound Memory Game
+    </h1>
+    <p>
+      Welcome to the game! Repeat back the pattern by pressing buttons.
+    </p>
+    
+    <p id="time"> Counting down: </p>
+    <p id="lives"> Strikes: </p>
+    
+    <button id="startBtn" onclick="startGame()">
+      Start
+    </button>
+    <button id="stopBtn" class="hidden" onclick="stopGame()">
+      Stop
+    </button>
+    
+    <div id="gameButtonArea">
+      <button id="button1" onmousedown="startTone(1)" onclick="guess(1)" onmouseup="stopTone(1)">
+        <img id="pic1" class="hidden" src="https://cdn.glitch.global/bd40afa8-e0d4-411a-a424-e4477e245f52/pic6.png?v=1650524730922" alt="pic1">
+      </button>
+      <button id="button2" onmousedown="startTone(2)" onclick="guess(2)" onmouseup="stopTone(2)">
+        <img id="pic2" class="hidden" src="https://cdn.glitch.global/bd40afa8-e0d4-411a-a424-e4477e245f52/pic2.png?v=1650524712850" alt="pic2">
+      </button>
+      <button id="button3" onmousedown="startTone(3)" onclick="guess(3)" onmouseup="stopTone(3)">
+        <img id="pic3" class="hidden" src="https://cdn.glitch.global/bd40afa8-e0d4-411a-a424-e4477e245f52/pic3.png?v=1650524717469" alt="pic3">
+      </button>
+      <button id="button4" onmousedown="startTone(4)" onclick="guess(4)" onmouseup="stopTone(4)">
+        <img id="pic4" class="hidden" src="https://cdn.glitch.global/bd40afa8-e0d4-411a-a424-e4477e245f52/pic4.png?v=1650524721899" alt="pic4">
+      </button>
+      <button id="button5" onmousedown="startTone(5)" onclick="guess(5)" onmouseup="stopTone(5)">
+        <img id="pic5" class="hidden" src="https://cdn.glitch.global/bd40afa8-e0d4-411a-a424-e4477e245f52/pic5.png?v=1650524726144" alt="pic5">
+      </button>
+      <button id="button6" onmousedown="startTone(6)" onclick="guess(6)" onmouseup="stopTone(6)">
+        <img id="pic6" class="hidden" src="https://cdn.glitch.global/bd40afa8-e0d4-411a-a424-e4477e245f52/pic1.png?v=1650524708113" alt="pic6">
+      </button>
+    </div>
+  </body>
+</html>
