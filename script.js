@@ -11,12 +11,16 @@ var volume = 0.5;
 var tonePlaying = false;
 var guessCounter = 0;
 var strikes = 0;
+var time = 20;
+var cdown = null;
+var reset = false;
 
 function startGame(){
   progress = 0;
   gamePlaying = true;
-  clueHoldTime = 1200;
+  clueHoldTime = 1500;
   strikes = 3;
+  document.getElementById("lives").innerHTML = "Strikes: " + strikes;
   document.getElementById("startBtn").classList.add("hidden");
   document.getElementById("stopBtn").classList.remove("hidden");
   
@@ -31,6 +35,7 @@ function startGame(){
 
 function stopGame(){
   gamePlaying = false;
+  reset = true;
   document.getElementById("startBtn").classList.remove("hidden");
   document.getElementById("stopBtn").classList.add("hidden");
 }
@@ -108,6 +113,24 @@ function playClueSequence(){
     delay += cluePauseTime;
   }
   clueHoldTime -= 100;
+  time = 20;
+  reset = false;
+  
+  clearInterval(cdown);
+  cdown = setInterval(countdown, 1000);
+}
+
+function countdown() {
+  document.getElementById("time").innerHTML = "Counting down: " + time;
+  time--;
+  if (reset || time < 0) {
+    if (!reset) {
+      loseGame();
+    }
+    document.getElementById("time").innerHTML = "Counting down: 0";
+    time = 20;
+    clearInterval(cdown);
+  }
 }
 
 function loseGame() {
@@ -140,6 +163,7 @@ function guess(btn){
     }
   } else{
     strikes --;
+    document.getElementById("lives").innerHTML = "Strikes: " + strikes;
     if (strikes == 0) {
       loseGame();
     } else {
