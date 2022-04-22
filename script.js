@@ -165,9 +165,10 @@ function guess(btn){
     strikes --;
     document.getElementById("lives").innerHTML = "Strikes: " + strikes;
     if (strikes == 0) {
+      document.getElementById("lives").innerHTML = "Strikes: " + strikes;
       loseGame();
     } else {
-      alert("You have " + strikes + " left");
+      alert("You have " + strikes + " strikes left");
       playClueSequence();
     }
   }
